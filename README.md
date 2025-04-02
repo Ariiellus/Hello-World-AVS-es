@@ -5,7 +5,7 @@
 ¡Bienvenida/o a mi primer workshop! Te enseñaré la funcionalidad más simple que puedes esperar de un AVS para que comiences a familiarizarte con EigenLayer.
 
 - [Slides](https://www.canva.com/design/DAGjf7IMZ8M/COIBud6aTnvLyEVUjirVMw/view?utm_content=DAGjf7IMZ8M&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h5eb5cb77c1)
-- [Video en español](https://www.youtube.com/)
+- [Video en español](https://youtu.be/ScvZ0bDRXoY)
 - Sígueme en X: [@Ariiellus](https://x.com/Ariiellus)
 
 ## Arquitectura
