@@ -39,6 +39,7 @@ Primero copiaremos el [repo de EigenLayer](https://github.com/Layr-Labs/hello-wo
 
 ```sh
 git clone https://github.com/Layr-Labs/hello-world-avs.git
+cd hello-world-avs
 ```
 
 ### Entorno de Desarrollo
@@ -106,6 +107,14 @@ En la terminal #3 crearemos tareas de Hello World que se enviarán a los operado
 ```sh
 # Iniciar la aplicación createNewTasks
 npm run start:traffic
+```
+
+Para correr multiples tareas (por ejemplo 10), ejecuta el siguiente comando:
+
+```sh
+for i in {1..10}; do
+  npm run start:traffic &
+done
 ```
 
 ### Crear y reclamar distribuciones
