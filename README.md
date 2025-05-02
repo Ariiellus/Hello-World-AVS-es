@@ -109,14 +109,6 @@ En la terminal #3 crearemos tareas de Hello World que se enviarán a los operado
 npm run start:traffic
 ```
 
-Para correr multiples tareas (por ejemplo 10), ejecuta el siguiente comando:
-
-```sh
-for i in {1..10}; do
-  npm run start:traffic &
-done
-```
-
 ### Crear y reclamar distribuciones
 
 Algunas otras tareas que puedes probar son la distribución de recompensas a los operadores por las tareas realizadas.
