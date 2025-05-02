@@ -141,6 +141,43 @@ npm run create-operator-directed-distributions-root
 npm run claim-distributions
 ```
 
+## ¿Qué más podemos construir?
+
+Intentemos crear un [servicio de oráculo](https://docs.wavs.xyz/tutorial/1-overview) que toma los datos del precio de Bitcoin desde CoinMarketCap.
+
+El servicio cuenta con 3 partes básicas:
+
+1. Un trigger: Cualquier evento emitido por un contrato. Este evento desencadena un servicio. En este ejemplo el trigger transmitirá la información del ID de un activo de CoinMarketCap.
+2. Un componente de servicio: El componente de servicio contiene la lógica del servicio. En este ejemplo el componente de servicio se encargara de obtener el precio del activo de CoinMarketCap y enviarlo en formato JSON.
+
+3. Un contrato de servicio: Este contrato contiene la lógica de validación y almacenamiento de la información obtenida del componente de servicio. Cuando un operador enviá una respuesta, el contrato de servicio verificara la integridad de la información y la asociara con el ID del trigger.
+
+Estas partes se utilizan para crear un servicio de oráculo mediante WAVS.
+
+### Configurando el sistema
+
+Para configurar el sistema, debes tener instalado las [siguientes herramientas](https://docs.wavs.xyz/tutorial/2-setup):
+
+- Foundry
+- Docker
+- Make
+- JQ
+- Rust
+- Cargo
+
+### Creando un servicio de oráculo
+
+Para crear un servicio de oráculo, sigue estos pasos:
+
+Abre una terminal y ejecuta el siguiente comando:
+
+```sh
+forge init --template Lay3rLabs/wavs-foundry-template my-wavs --branch 0.3
+```
+
+
+
+
 ## Ayuda y Soporte
 
 Si necesitas ayuda para desplegar o modificar este repositorio para tu AVS:
