@@ -165,10 +165,63 @@ Abre una terminal y ejecuta el siguiente comando:
 
 ```sh
 forge init --template Lay3rLabs/wavs-foundry-template my-wavs --branch 0.3
+cd my-wavs
 ```
 
+Instala dependencias y construye el contrato junto con los testes correspondientes:
 
+```sh
+# Instala dependencias
+make setup
 
+# Construye los contratos
+forge build
+
+# Realiza los tests
+forge test
+```
+
+Construyamos y probemos los componentes:
+
+```sh
+make wasi-build
+```
+
+Testing y debugging local:
+
+```sh
+# El ID de Bitcoin es 1. No se guardará en el contrato, solo se muestra la salida del componente
+COIN_MARKET_CAP_ID=1 make wasi-exec
+```
+
+Corre el servicio de oráculo:
+
+```sh
+cp .env.example .env
+
+# Inicia una Anvil chain y despliega los contratos de EigenLayer
+make start-all
+```
+
+En una nueva terminal desplegaremos nuestros contratos WavsSubmit.sol & WavsTrigger.sol:
+
+```sh
+export SERVICE_MANAGER_ADDR=`make get-eigen-service-manager-from-deploy`
+forge script ./script/Deploy.s.sol ${SERVICE_MANAGER_ADDR} --sig "run(string)" --rpc-url http://localhost:8545 --broadcast
+```
+
+Despliega tu servicio y actívalo:
+
+```sh
+make deploy-service
+
+export COIN_MARKET_CAP_ID=1
+export SERVICE_TRIGGER_ADDR=`make get-trigger-from-deploy`
+forge script ./script/Trigger.s.sol ${SERVICE_TRIGGER_ADDR} ${COIN_MARKET_CAP_ID} --sig "run(string,string)" --rpc-url http://localhost:8545 --broadcast -v 4
+
+# Muestra el último TriggerId y muestra el resultado mediante `script/ShowResult.s.sol`
+make show-result
+```
 
 ## Ayuda y Soporte
 
