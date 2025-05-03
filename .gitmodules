@@ -1,0 +1,3 @@
+[submodule "my-wavs"]
+	path = my-wavs
+	url = https://github.com/Lay3rLabs/wavs-foundry-template
